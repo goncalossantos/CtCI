@@ -1,8 +1,7 @@
 from unittest import TestCase
 
-from chapter_2.sum_lists import sum_lists, sum_lists_follow_up
-
 from chapter_2.linked_list import LinkedList
+from chapter_2.sum_lists import sum_lists, sum_lists_follow_up
 
 
 class TestRemoveMiddleNode(TestCase):
@@ -29,5 +28,4 @@ class TestRemoveMiddleNode(TestCase):
             list_a = LinkedList(test[0])
             list_b = LinkedList(test[1])
             result = LinkedList(test[2])
-
             assert sum_lists_follow_up(list_a, list_b) == result
