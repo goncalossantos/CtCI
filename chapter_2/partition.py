@@ -1,6 +1,9 @@
 from chapter_2.linked_list import LinkedList, Node
 
 
+# Todo: Add tests for the merge subroutine
+
+
 def partition(linked_list: LinkedList, value: int) -> LinkedList:
     """ Partitions a LinkedList object around a value
 
