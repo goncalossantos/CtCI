@@ -1,6 +1,8 @@
-from typing import Tuple
+from collections import namedtuple
 
 from chapter_2.linked_list import LinkedList, Node
+
+SumNodesResult = namedtuple("SumNodesResult", ['digit', 'carry'])
 
 
 def sum_lists(list_a: LinkedList, list_b: LinkedList) -> LinkedList:
@@ -58,7 +60,7 @@ def sum_lists(list_a: LinkedList, list_b: LinkedList) -> LinkedList:
     return output
 
 
-def sum_nodes(ptr_a: Node, ptr_b: Node, carry: int) -> Tuple[int, int]:
+def sum_nodes(ptr_a: Node, ptr_b: Node, carry: int) -> SumNodesResult:
     """ Sums two nodes' values together, and returns the resulting least signinficant digit of the sum
     and its carry
 
@@ -74,7 +76,7 @@ def sum_nodes(ptr_a: Node, ptr_b: Node, carry: int) -> Tuple[int, int]:
     summed_value = val_a + val_b + carry
     digit = summed_value % 10
     carry = summed_value // 10
-    return digit, carry
+    return SumNodesResult(digit, carry)
 
 
 def sum_lists_follow_up(list_a: LinkedList, list_b: LinkedList) -> LinkedList:
