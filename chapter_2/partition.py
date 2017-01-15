@@ -24,19 +24,20 @@ def partition(linked_list: LinkedList, value: int) -> LinkedList:
 
     ptr = linked_list.head  # type: Node
 
-    # Append to the correct partition list
     while ptr:
-        if ptr.value == value:
-            equal_list.append(ptr.value)
-        elif ptr.value < value:
-            before_list.append(ptr.value)
-        else:
-            after_list.append(ptr.value)
+        append_correct_list(after_list, before_list, equal_list, ptr, value)
         ptr = ptr.next
-
-    # Merge lists
     merge(after_list, before_list, equal_list)
     return before_list
+
+
+def append_correct_list(after_list, before_list, equal_list, ptr, value):
+    if ptr.value == value:
+        equal_list.append(ptr.value)
+    elif ptr.value < value:
+        before_list.append(ptr.value)
+    else:
+        after_list.append(ptr.value)
 
 
 def merge(after_list: LinkedList, before_list: LinkedList, equal_list: LinkedList) -> None:

@@ -46,9 +46,8 @@ def sum_lists(list_a: LinkedList, list_b: LinkedList) -> LinkedList:
 
     # Iterate through both lists, performing a sum and appending to the output sub list
     while ptr_a is not None or ptr_b is not None:  # We can only stop when both lists have been exhausted
-        next_output_digit, next_carry = sum_nodes(ptr_a, ptr_b, carry)
+        next_output_digit, carry = sum_nodes(ptr_a, ptr_b, carry)
         output.append(next_output_digit)
-        carry = next_carry
         # Iterate
         ptr_a = ptr_a if not ptr_a else ptr_a.next
         ptr_b = ptr_b if not ptr_b else ptr_b.next
@@ -74,9 +73,7 @@ def sum_nodes(ptr_a: Node, ptr_b: Node, carry: int) -> SumNodesResult:
     val_b = 0 if not ptr_b else ptr_b.value
 
     summed_value = val_a + val_b + carry
-    digit = summed_value % 10
-    carry = summed_value // 10
-    return SumNodesResult(digit, carry)
+    return SumNodesResult(summed_value % 10, summed_value // 10)
 
 
 def sum_lists_follow_up(list_a: LinkedList, list_b: LinkedList) -> LinkedList:
@@ -114,31 +111,29 @@ def sum_lists_follow_up(list_a: LinkedList, list_b: LinkedList) -> LinkedList:
     output = LinkedList()
     ptr_a, ptr_b = list_a.head, list_b.head
     carry = 0  # type: int
-    stack_a, stack_b = list(), list()  # Will be used when iterating through the lists
+    stack_a, stack_b = list(), list()
 
     # Test Null case
     if not ptr_a and not ptr_b:
         return output
 
-    # Iterate through list_a saving nodes to stack
-    while ptr_a:
-        stack_a.append(ptr_a)
-        ptr_a = ptr_a.next
-    # Iterate through list_b saving nodes to stack
-    while ptr_b:
-        stack_b.append(ptr_b)
-        ptr_b = ptr_b.next
+    list_to_stack(ptr_a, stack_a)
+    list_to_stack(ptr_b, stack_b)
 
-    while stack_a or stack_b:  # We can only stop when both stacks have been exhausted
-        # Get nodes to sum from stack
+    while stack_a or stack_b:
+
         ptr_a = None if not stack_a else stack_a.pop()
         ptr_b = None if not stack_b else stack_b.pop()
-        # Sum them
-        next_output_digit, next_carry = sum_nodes(ptr_a, ptr_b, carry)
-        output.push(next_output_digit)
-        carry = next_carry
 
-    # If the last time we summed we produced a carry, it has to be added to the list
+        next_output_digit, carry = sum_nodes(ptr_a, ptr_b, carry)
+        output.push(next_output_digit)
+
     if carry > 0:
         output.push(carry)
     return output
+
+
+def list_to_stack(ptr_a, stack_a):
+    while ptr_a:
+        stack_a.append(ptr_a)
+        ptr_a = ptr_a.next
