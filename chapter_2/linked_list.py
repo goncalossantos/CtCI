@@ -32,7 +32,7 @@ class Node(object):
         return "Node({0})".format(str(self.value))
 
     def __repr__(self):
-        return self.__str__(), self._next is not None
+        return str(self.__str__())
 
 
 class LinkedList(object):
@@ -83,8 +83,9 @@ class LinkedList(object):
         if self.head is None:
             self.tail = self.head = Node(value)
         else:
+            aux = self.head
             self.head = Node(value)
-            self.head.next = self.head
+            self.head.next = aux
         return self.head
 
     def insert(self, value, pos):
