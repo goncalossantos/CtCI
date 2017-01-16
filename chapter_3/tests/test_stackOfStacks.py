@@ -14,3 +14,21 @@ class TestStackOfStacks(TestCase):
         assert len(stack.stacks[1]) == 1
         stack.pop()
         assert len(stack.stacks) == 1
+
+    def test_stacks(self):
+        stacks = StackOfStacks(5)
+        for i in range(35):
+            stacks.push(i)
+        lst = []
+        for _ in range(35):
+            lst.append(stacks.pop())
+        self.assertEqual(lst, list(reversed(range(35))))
+
+    def test_pop_at(self):
+        stacks = StackOfStacks(5)
+        for i in range(35):
+            stacks.push(i)
+        lst = []
+        for _ in range(31):
+            lst.append(stacks.pop_at(0))
+        self.assertEqual(lst, list(range(35)[4:]))

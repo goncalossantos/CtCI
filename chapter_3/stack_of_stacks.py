@@ -3,6 +3,23 @@ from typing import Any
 from chapter_3.stack import Stack, PopEmpty
 
 
+class StackWithBottom(Stack):
+    def __init__(self):
+        self._bottom = None
+        super(StackWithBottom, self).__init__()
+
+    def push(self, value: Any):
+
+        super(StackWithBottom, self).push(value)
+        if not self._bottom:
+            self._bottom = self._top
+
+    def pop(self):
+        value = super(StackWithBottom, self).pop()
+        if self._length == 0:
+            self._bottom = None
+
+
 class StackOfStacks(object):
     def __init__(self, limit):
         self._limit = limit
@@ -24,3 +41,12 @@ class StackOfStacks(object):
         if len(self.stacks[-1]) == 0:
             self.stacks.pop()
         return value
+
+    def pop_at(self, index):
+        if len(self.stacks) < index:
+            raise Exception("No such stack")
+
+        stack = self.stacks[index]
+        value = stack.pop()
+        if not stack.bottom:
+            del self.stacks[index]
