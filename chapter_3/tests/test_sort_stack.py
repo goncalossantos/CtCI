@@ -4,7 +4,7 @@ from chapter_3.data_structure.stack import Stack
 from chapter_3.sort_stack import sort_stack
 
 
-class TestSort_stack(TestCase):
+class TestSortStack(TestCase):
     def test(self):
         stack = Stack()
         for i in [4, 3, 6, 1, 9, 2, 7, 5, 8]:
