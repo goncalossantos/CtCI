@@ -16,7 +16,7 @@ class StackWithBottom(Stack):
 
     def pop(self):
         value = super(StackWithBottom, self).pop()
-        if self._length == 0:
+        if self.is_empty():
             self._bottom = None
         return value
 
@@ -50,7 +50,8 @@ class StackOfStacks(object):
         if not self.stacks:
             raise PopEmpty
         value = self.stacks[-1].pop()
-        if len(self.stacks[-1]) == 0:
+        if self.stacks[-1].is_empty():
+            # Remove empty stack
             self.stacks.pop()
         return value
 

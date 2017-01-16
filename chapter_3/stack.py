@@ -38,5 +38,8 @@ class Stack(object):
 
         return value
 
+    def is_empty(self):
+        return True if self._length == 0 else False
+
     def __len__(self):
         return self._length
