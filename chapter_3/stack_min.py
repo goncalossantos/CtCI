@@ -1,6 +1,6 @@
 from typing import Any
 
-from chapter_3.stack import Stack
+from chapter_3.data_structure.stack import Stack
 
 
 class StackMin(Stack):

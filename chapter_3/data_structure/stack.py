@@ -28,3 +28,9 @@ class Stack(object):
 
     def __len__(self):
         return self._length
+
+    def is_empty(self):
+        return True if self._length == 0 else False
+
+    def peek(self) -> Any:
+        return None if not self._top else self._top.value
