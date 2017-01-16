@@ -7,13 +7,21 @@ class PopEmpty(Exception):
     pass
 
 
+class StackNode(Node):
+    def __init__(self, value):
+        self.before = None
+        super(StackNode, self).__init__(value)
+
+
 class Stack(object):
     def __init__(self):
         self._top = None
         self._length = 0
 
     def push(self, value: Any) -> None:
-        new_node = Node(value)
+        new_node = StackNode(value)
+        if self._top:
+            self._top.before = new_node
         new_node.next = self._top
         self._top = new_node
         self._length += 1
@@ -22,8 +30,12 @@ class Stack(object):
         if not self._top:
             raise PopEmpty
         value = self._top.value
-        self._top = self._top.next
         self._length -= 1
+        self._top = self._top.next
+
+        if self._top:
+            self._top.before = None
+
         return value
 
     def __len__(self):

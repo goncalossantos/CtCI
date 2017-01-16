@@ -34,9 +34,3 @@ class TestStackMin(TestCase):
         assert stack.pop() == 2
         m = stack.min
         assert stack.min is None
-
-    def test_push(self):
-        self.fail()
-
-    def test_pop(self):
-        self.fail()
