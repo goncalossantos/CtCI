@@ -22,7 +22,7 @@ setup(
     keywords="example documentation tutorial",
     url="http://packages.python.org/an_example_pypi_project",
     packages=['an_example_pypi_project', 'tests'],
-    long_description=read('README'),
+    long_description=read('README.md'),
     classifiers=[
         "Development Status :: 3 - Alpha",
         "Topic :: Utilities",
