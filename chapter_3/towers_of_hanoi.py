@@ -16,15 +16,17 @@ class TowersOfHanoi(object):
 
     def towers_of_hanoi(self, n, input_s, output_s, temp_s):
 
-        print(self)
         if n > 1:
             self.towers_of_hanoi(n=n - 1, input_s=input_s, output_s=temp_s, temp_s=output_s)
 
-        aux = input_s.pop()
-        output_s.push(aux)
-        print(self)
+        self.move(input_s, output_s)
         if n > 1:
             self.towers_of_hanoi(n=n - 1, input_s=temp_s, output_s=output_s, temp_s=input_s)
+
+    @staticmethod
+    def move(input_s, output_s):
+        aux = input_s.pop()
+        output_s.push(aux)
 
     def perform(self):
 
