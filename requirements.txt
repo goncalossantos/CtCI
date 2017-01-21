@@ -1,1 +1,1 @@
-git+https://github.com/goncalossantos/data_structures.git
+git+https://github.com/goncalossantos/py_data_structures.git
