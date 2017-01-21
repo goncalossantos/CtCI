@@ -43,3 +43,6 @@ class Stack(object):
 
     def __len__(self):
         return self._length
+
+    def peek(self) -> Any:
+        return None if not self._top else self._top.value
