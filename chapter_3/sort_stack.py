@@ -1,4 +1,4 @@
-from chapter_3.data_structure.stack import Stack
+from data_structures.stacks.stack import Stack
 
 
 def sort_stack(stack: Stack) -> Stack:

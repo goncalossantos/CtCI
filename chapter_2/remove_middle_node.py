@@ -1,4 +1,4 @@
-from chapter_2.linked_list import Node
+from data_structures.linked_lists.linked_list import Node
 
 
 def remove_middle_node(node: Node) -> None:

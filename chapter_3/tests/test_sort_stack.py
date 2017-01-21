@@ -1,6 +1,7 @@
 from unittest import TestCase
 
-from chapter_3.data_structure.stack import Stack
+from data_structures.stacks.stack import Stack
+
 from chapter_3.sort_stack import sort_stack
 
 

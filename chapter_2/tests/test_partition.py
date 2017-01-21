@@ -1,6 +1,7 @@
 from unittest import TestCase
 
-from chapter_2.linked_list import LinkedList
+from data_structures.linked_lists.linked_list import LinkedList
+
 from chapter_2.partition import partition
 
 

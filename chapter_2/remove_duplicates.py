@@ -1,4 +1,4 @@
-from chapter_2.linked_list import LinkedList, Node
+from data_structures.linked_lists.linked_list import LinkedList, Node
 
 
 def remove_duplicates(linked_list: LinkedList) -> LinkedList:

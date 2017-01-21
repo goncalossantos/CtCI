@@ -1,7 +1,7 @@
 from collections import namedtuple
 from typing import Any
 
-from chapter_3.data_structure.stack import Stack, PopEmpty
+from data_structures.stacks.stack import Stack, PopEmpty
 
 QueueStacks = namedtuple("QueueStacks", ["push_stack", "pop_stack"])
 

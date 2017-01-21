@@ -1,4 +1,4 @@
-from chapter_3.stack import Stack
+from data_structures.stacks.stack import Stack
 
 
 class TowersOfHanoi(object):

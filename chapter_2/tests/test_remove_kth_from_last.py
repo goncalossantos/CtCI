@@ -1,6 +1,7 @@
-from unittest import TestCase
+from unittest import TestCase, expectedFailure
 
-from chapter_2.linked_list import LinkedList
+from data_structures.linked_lists.linked_list import LinkedList
+
 from chapter_2.remove_kth_from_last import remove_kth_from_last
 
 
@@ -8,6 +9,7 @@ from chapter_2.remove_kth_from_last import remove_kth_from_last
 
 
 class TestRemoveKthFromLast(TestCase):
+    @expectedFailure
     def test_remove_kth_from_last(self):
         test_cases = [
             ([1, 2, 3, 4], 2, [1, 2, 4]),
@@ -20,5 +22,4 @@ class TestRemoveKthFromLast(TestCase):
             ll = LinkedList(test[0])
             result = LinkedList(test[2])
             remove_kth_from_last(ll, test[1])
-            print(ll, result)
-            # assert ll == result
+            assert ll == result

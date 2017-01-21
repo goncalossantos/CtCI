@@ -1,6 +1,6 @@
 from collections import namedtuple
 
-from chapter_2.linked_list import LinkedList, Node
+from data_structures.linked_lists.linked_list import LinkedList, Node
 
 SumNodesResult = namedtuple("SumNodesResult", ['digit', 'carry'])
 

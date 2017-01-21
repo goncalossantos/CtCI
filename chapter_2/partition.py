@@ -1,4 +1,4 @@
-from chapter_2.linked_list import LinkedList, Node
+from data_structures.linked_lists.linked_list import LinkedList, Node
 
 
 # Todo: Add tests for the merge subroutine

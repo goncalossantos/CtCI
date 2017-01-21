@@ -1,4 +1,4 @@
-from chapter_2.linked_list import LinkedList
+from data_structures.linked_lists.linked_list import LinkedList
 
 
 # Todo: Redo this because it is return, not remove kth from last
